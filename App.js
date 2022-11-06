@@ -1,10 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Bienvenidos a DosdeArte! </Text>
+      <Button
+        title='Reserva tu lampara'
+        onPress={()=> console.log("Toco el boton y me aparece en la terminal")}
+      />
+      <TouchableOpacity
+       onPress={()=> console.log("Click on text via TouchableOpacity")}
+      >
+        <View>
+          <Text> Seba chupa pingo </Text>
+        </View>
+
+      </TouchableOpacity>
+
+      <TouchableOpacity
+       onPress={()=> console.log("Click on text via TouchableOpacity")}
+      >
+        <View>
+         <Image
+         style={{
+          width: 300,
+          height: 300,
+          resizeMode: 'contain'
+        }}
+         source={require('./assets/ParLamparas.png')}/>
+        </View>
+
+      </TouchableOpacity>
+     
       <StatusBar style="auto" />
     </View>
   );
