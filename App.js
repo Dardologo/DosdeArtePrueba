@@ -1,48 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
+import "react-native-gesture-handler";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function App() {
+import { Catalog, Login, Orders } from "./src/screens";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Bienvenidos a DosdeArte! </Text>
-      <Button
-        title='Reserva tu lampara'
-        onPress={()=> console.log("Toco el boton y me aparece en la terminal")}
-      />
-      <TouchableOpacity
-       onPress={()=> console.log("Click on text via TouchableOpacity")}
-      >
-        <View>
-          <Text> Seba chupa pingo </Text>
-        </View>
-
-      </TouchableOpacity>
-
-      <TouchableOpacity
-       onPress={()=> console.log("Click on text via TouchableOpacity")}
-      >
-        <View>
-         <Image
-         style={{
-          width: 300,
-          height: 300,
-          resizeMode: 'contain'
-        }}
-         source={require('./assets/ParLamparas.png')}/>
-        </View>
-
-      </TouchableOpacity>
-     
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Orders" >
+        <Stack.Screen  name="Login vista" component={Login} />
+        <Stack.Screen name="Catalog vista" component={Catalog} />
+        <Stack.Screen name="Orders" component={Orders} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
