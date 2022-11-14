@@ -1,9 +1,30 @@
+import { Card } from '@rneui/base'
 import React from 'react'
-import { StyleSheet, Text } from 'react-native'
+import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
+import lamparas from '../services/lamparas'
+import Lampara from '../components/Lampara';
+
+console.log(lamparas);
 
 export const Catalog = () => {
   return (
-    <Text style={styles.container}>Catalog: Aca van a estar todas las lamparas</Text>
+    <ScrollView>
+    <View style = {styles.container}>
+      <Text style={styles.container}> Catalog: Aca van a estar todas las lamparas</Text>
+       {
+        lamparas.map(lamp => <Lampara lamp={lamp}/>)
+       }
+        <Lampara />
+        <Lampara />
+        <Lampara />
+        <Lampara />
+        <Lampara />
+        <Lampara />
+        <Lampara />
+      
+    </View>
+    </ScrollView>
+
     
   )}
 

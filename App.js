@@ -2,7 +2,7 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useState } from "react";
-import { Catalog, Login, Orders } from "./src/screens";
+import { Catalog, Login, Orders, Favourites } from "./src/screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function App() {
@@ -10,16 +10,22 @@ export default function App() {
   const [authenticationData, setauthenticationData] = useState(false);
   const StackNavigator = createNativeStackNavigator();
 
+
+
   return (
     <NavigationContainer>
       <StackNavigator.Navigator>
+
+      
+
         {/* Todo lo que esta dentro del stack estara disponible dentro del arbol de navegacion */}
         {
           /* Si hay data de usuario me muestra el index, Home */
         authenticationData ? 
           <>
+          <StackNavigator.Screen name="Catalogo" component={Catalog} />
            <StackNavigator.Screen name="Orders" component={Orders} />
-            <StackNavigator.Screen name="Catalog" component={Catalog} options={
+            <StackNavigator.Screen name="Catalog" component={Favourites} options={
               {
                 headerShown: false
               }
@@ -35,7 +41,7 @@ export default function App() {
   );
 }
 
-  /*   return (
+ /*    return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Orders" >
         <Stack.Screen  name="Login vista" component={Login} />
@@ -45,3 +51,4 @@ export default function App() {
     </NavigationContainer>
   ); */
 
+     
