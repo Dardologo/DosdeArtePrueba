@@ -1,27 +1,23 @@
-import {Card, Button, Icon } from '@rneui/themed';
-import { View, Text, } from 'react-native';
+import {Card, Image, Button, Icon } from '@rneui/themed';
+import { View, Text,} from 'react-native';
 
 
 
-const Lampara = ({ lamp }) => {
+const Lampara = ({ lamp={lamp} }) => {
     return (
         <View>
             <Card containerStyle={{ marginTop: 15 }}>
-            <Card.Title>FONTS </Card.Title>
+            <Card.Title>{lamp.nombre} </Card.Title>
             <Card.Divider />
             <Text h1>
-              Hola
+              {lamp.precio}
             </Text>
             <Text h2>
-              h2 Heading
+              {lamp.descripcion}
             </Text>
-            <Text h3>
-              h3 Heading
-            </Text>
-            <Text h4>
-              h4 Heading
-            </Text>
-            <Text >Normal Text</Text>
+            <Image
+            source={require(lamp.imagen)}
+            />
           </Card>
           </View>
     )

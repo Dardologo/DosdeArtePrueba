@@ -1,9 +1,11 @@
+
 const lamparas = [
     {
         id: 1,
         nombre: "Lampara de pie",
         descripcion: "Lampara con soporte de pie, con estilo colonial",
-        precio: 1500,
+        precio: 1500,   
+        imagen: '../../assets/1.png'
     },
     {
         id: 2,

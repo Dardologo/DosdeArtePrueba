@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function App() {
   //creo un estado de atutenticacion
-  const [authenticationData, setauthenticationData] = useState(false);
+  const [authenticationData, setauthenticationData] = useState(true);
   const StackNavigator = createNativeStackNavigator();
 
 
@@ -35,7 +35,7 @@ export default function App() {
          : 
           /* Si no hay data de usuario me muestra el Login */
           <StackNavigator.Screen name="Login" component={Login} />
-        }
+        } 
       </StackNavigator.Navigator>
     </NavigationContainer>
   );
