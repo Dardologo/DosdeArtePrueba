@@ -4,7 +4,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import { useEffect } from "react";
 //import { Text } from 'react-native'
 
- export const Login = () => {
+const Login = () => {
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     expoClientId: '220872438649-tjvp18a5kqhhrlm62i5m0b7onomm2jtf.apps.googleusercontent.com'
@@ -46,4 +46,4 @@ const styles =StyleSheet.create({
   },
 });
  
-//export default Login
+export default Login

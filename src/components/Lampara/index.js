@@ -15,9 +15,6 @@ const Lampara = ({ lamp={lamp} }) => {
             <Text h2>
               {lamp.descripcion}
             </Text>
-            <Image
-            source={require(lamp.imagen)}
-            />
           </Card>
           </View>
     )

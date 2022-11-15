@@ -2,8 +2,12 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useState } from "react";
-import { Catalog, Login, Orders, Favourites } from "./src/screens";
+import Home from './src/screens/Home';
+import Login from './src/screens/Login';
+import {Catalog} from './src/screens/Catalog';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
 
 export default function App() {
   //creo un estado de atutenticacion
@@ -23,9 +27,7 @@ export default function App() {
           /* Si hay data de usuario me muestra el index, Home */
         authenticationData ? 
           <>
-          <StackNavigator.Screen name="Catalogo" component={Catalog} />
-           <StackNavigator.Screen name="Orders" component={Orders} />
-            <StackNavigator.Screen name="Catalog" component={Favourites} options={
+            <StackNavigator.Screen name="Home" component={Catalog} options={
               {
                 headerShown: false
               }
