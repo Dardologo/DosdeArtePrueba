@@ -6,6 +6,7 @@ import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import {Catalog} from './src/screens/Catalog';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Image, View } from "react-native";
 
 
 
@@ -32,7 +33,7 @@ export default function App() {
                 headerShown: false
               }
             } />
-           
+
           </>
          : 
           /* Si no hay data de usuario me muestra el Login */
