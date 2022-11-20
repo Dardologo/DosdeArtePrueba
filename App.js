@@ -1,19 +1,20 @@
 //import "react-native-gesture-handler";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { useState } from "react";
+import {useEffect, useState, useCallback } from "react";
 import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import {Catalog} from './src/screens/Catalog';
+import { Favourite } from "./src/screens/Favourites";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, View } from "react-native";
-
-
 
 export default function App() {
   //creo un estado de atutenticacion
   const [authenticationData, setauthenticationData] = useState(true);
   const StackNavigator = createNativeStackNavigator();
+  const BottonTabNavigator = createBottomTabNavigator()
 
 
 
@@ -53,5 +54,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   ); */
+
 
      

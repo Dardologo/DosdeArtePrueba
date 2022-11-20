@@ -15,10 +15,6 @@ export default function Home ({navigation}) {
                     onPress={() => navigation.navigate("Catalog")}
                 />
                 <Button
-                    title= 'Ordenes'
-                    onPress={() => navigation.navigate("Orders")}
-                />
-                <Button
                     title= 'Favoritos'
                     onPress={() => navigation.navigate("Favourites")}
                 />

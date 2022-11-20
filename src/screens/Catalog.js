@@ -1,19 +1,35 @@
 import React from 'react'
-import { View, Text, ScrollView, StyleSheet, Image } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Image, SafeAreaView, Button } from 'react-native';
 import lamparas from '../services/lamparas'
-import imagenes from '../../assets'
+import favoritos from '../services/favoritos';
 import Lampara from '../components/Lampara';
+import Favorito from '../components/Favorito/favorito';
+import Favourites from './Favourites'
 
 console.log(lamparas);
 
-export const Catalog = () => {
+export const Catalog = (navigation) => {
   return (
     <ScrollView>
-    <View style = {styles.container}>
-      <Text style={styles.container}> Catalogo de Lamparas</Text>
+    <SafeAreaView style={styles.container}>
+    <View>
+      <Text style={styles.title}> Catalogo de Lamparas</Text>
        {
-        lamparas.map(lamp => <Lampara lamp={lamp}/>)
+        lamparas.map(lamp => <Lampara lamp={lamp}/>)        
        }
+    </View>
+      </SafeAreaView>
+    <View>
+    <View>
+      <Text style={styles.title}> Favoritos</Text>
+       {
+        favoritos.map(fav => <Favorito fav={fav}/>)        
+       }
+    </View>   
+    <Button
+          title= 'Favoritos'
+          onPress={() => navigation.navigate("Favourites")}
+          />
     </View>
     </ScrollView>
 
@@ -26,5 +42,16 @@ export const Catalog = () => {
       flex: 1,
       backgroundColor: '#fff',
       justifyContent: 'center',
+      marginTop: 30
+      
     },
+    title: {
+        fontSize: 20,
+        alignContent: 'center',
+        marginTop: 5,
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        textAlign: 'center'
+      
+    }
   });
