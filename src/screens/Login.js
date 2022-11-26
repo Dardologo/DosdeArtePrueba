@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, SafeAreaView, View, StyleSheet } from "react-native"
+import { Button, SafeAreaView, View, StyleSheet,Image, TouchableOpacity,Text } from "react-native"
 import * as Google from 'expo-auth-session/providers/google';
 import { useEffect } from "react";
+import { color } from '@rneui/base';
 //import { Text } from 'react-native'
 
 const Login = () => {
@@ -20,18 +21,23 @@ const Login = () => {
 
  
   return (   
-    <SafeAreaView>
-      <View>
-    <Button
-    title='Login con Google'
-    onPress={()=>{
-      promptAsync()
-    }
-    
-    }
-    />
-    </View>
-    </SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        onPress={() => {
+            promptAsync()
+        }}
+    >
+        <View  style={styles.container}>
+          <Text style={styles.title}>
+            Bienvenidos a Dos De Arte
+          </Text>
+            
+             <Image source={require('../../assets/btn_google_signin_light_normal_web.png')} />
+             
+        </View>
+      </TouchableOpacity>
+
+      </SafeAreaView>
     
      )
 }
@@ -44,6 +50,12 @@ const styles =StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  title: {
+    fontSize: 40,
+    alignContent: 'center',
+    justifyContent: 'center',
+    color: 'green'
+}
 });
  
 export default Login

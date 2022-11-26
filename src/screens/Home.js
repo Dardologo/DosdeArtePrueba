@@ -1,25 +1,33 @@
 
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Button, ScrollView, StyleSheet,SafeAreaView, Text, View } from 'react-native';
 import Catalog from './Catalog'
 import Oders from './Orders'
-import Favourites from './Favourites'
 
 
 
 export default function Home ({navigation}) {
     return (
+        <SafeAreaView style={styles.container}>
+
         <View>
-            <View> style={styles.container}
+            <Text>
+                Bienvenidos a Dos De Arte
+            </Text>
+            <View> 
                 <Button
                     title= 'Catalogo'
-                    onPress={() => navigation.navigate("Catalog")}
+                    onPress={() => navigation.navigate("Catalogo")}
                 />
+
                 <Button
                     title= 'Favoritos'
                     onPress={() => navigation.navigate("Favourites")}
                 />
              </View>
         </View>
+
+
+        </SafeAreaView>
     );
   }
 

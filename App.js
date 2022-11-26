@@ -5,10 +5,11 @@ import {useEffect, useState, useCallback } from "react";
 import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import {Catalog} from './src/screens/Catalog';
-import { Favourite } from "./src/screens/Favourites";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, View } from "react-native";
+import Details from "./src/screens/Details/index";
+import Lampara from "./src/components/Lampara";
 
 export default function App() {
   //creo un estado de atutenticacion
@@ -29,11 +30,10 @@ export default function App() {
           /* Si hay data de usuario me muestra el index, Home */
         authenticationData ? 
           <>
-            <StackNavigator.Screen name="Home" component={Catalog} options={
-              {
-                headerShown: false
-              }
-            } />
+            <StackNavigator.Screen name="Home" component={Home}/>
+            <StackNavigator.Screen name="Catalogo" component={Catalog}/>
+            <StackNavigator.Screen name="Details" component={Details}/>
+            <StackNavigator.Screen name="Lampara" component={Lampara}/>
 
           </>
          : 

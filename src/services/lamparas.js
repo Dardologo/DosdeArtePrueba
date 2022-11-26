@@ -1,8 +1,7 @@
-import { State } from "react-native-gesture-handler"
 
 const lamparas = [
     {
-        id: 1,
+        id: 0,
         nombre: "Lampara de pie",
         descripcion: "Lampara con soporte de pie, con estilo colonial",
         precio: 1500,  
@@ -11,7 +10,7 @@ const lamparas = [
         
     },
     {
-        id: 2,
+        id: 1,
         nombre: "Lampara de piso",
         descripcion: "Lampara con soporte de pie, con estilo hibrido",
         precio: 1500,
@@ -19,7 +18,7 @@ const lamparas = [
         imagen: "https://lh3.googleusercontent.com/fife/AAbDypAU-l-xvipy-Y64eSHaEv3-EAlRuzyBwrSCFugqnRcE2DYQ5kKtcmcHiBaBMbmY6L71CTYo6u64ynXe8wrNpD5c-UnOWs5ZbHJVE5EoVbXNq9ENVFxOPB2NtxAqMuSjbXICZsdrh_K2g-wkkdxd40vayhOnlGwW6tVcvBqhkF1WmzF8sWg_CxlRTt5jcGTE5PdanxaMX9ybPYFTrSzVDRmFniZYx-87kfkMl-1-fnTtf1fcL_kUILMdc8zaz6OISgtHxSncmD2OOOHk6zyleuezHzrK6fQ_jazfv0QLkxUxP8449DeHhjrGPqPzgR_zhHkHWPSIV18qhJThDyUsAU1rvl8z1LS2LK8TV0gKzRZ6Lod7RUiCsaoiWkixiuin2PiLkYtuWxCcDX85XorkPCbZaO3WV_I4pM1cdgoWvreO3NEN6FpC0HKo8E2xacO36BhRCo-TO3ajv1Gk-uHfdog186PYn26YjzfkMCYLdC7ECfl4i-IUo7T_nj93hLQEPT97_eu_cXP7H6MoZVb_CYu-Nx1Rg1ilheB9sDxwF_-p4gGqOC6SqbwoGic9AJgV8ZMToGKUjo49H_PPHTvYoAWMHvfhY7b9tHCrs_iu4sLKP7i5SyHlQTkWNmCegDV1bzJyR_0azw6zWHf93JcsZmkGitL22ttb6nHUvsyUNtWlRuTUuZM9Tl30P5opc6HE-PO_XEFraFkLsII0Bf4NNp4r-kYrEM9l4ea8PV_V4O4n4vNR5Ej47oSeeYrTX1PAOk19FFb2tMIm6V__eH0gZSPg7g4KFse_E6Q-lv81Be5a-PpV9I7z-8GxlCwGc10lQ5qrhzQRTJmwbigyb7g0_K_GpfRDAUrd1KldU3Ol1MJPNw2jKqcZ4-DYmzu9Im9B_Yf6mOzUBA34l_NIVwbsj7-u4KXeAN281JdKJ-tHqvrLPRxvwqzm16_Mco_w5AlNXrGptHFSQTJwVt5OxBWGbnAfvspXyQFTSWdWIGB48zs-w3NWPSoJiJPkIcpDhmd-Bm9HcuVCKqGnInxEuFkpWrPpCBjP1-DuUMw3ldF02bebdnI6WAiEZQUjhJUFzrNUtl8AGFTQQwdFtTaFAF4VwhDbI2iRPoT8CRmgbr_jzHXv_MMJpigQyRWYoPVBTCvBwab240wtW_1YLFaiqtHg9rFnLx6gxaYrruEHDDvOP8My7gWo0BH667W9bQS3HyqnBkHIy4KCZXwVRCPdUYRogguHI09L9ya5qZxmbJRiI6VLWUs-kdqL-2_9x9nH1i2cuDe0XV4saz_Buwk1uavoxCQo2Epmr1TTjbGEC2pPIspPQtyYXf5AITKfaTJgpSyGztdogOcLxg2kQt9RWxh9lZNtdPZvNoMksoubzyAR2cq-EFD2WqOOYMcSLrJL3udyUoJ2Ao64aXXT155qLdk-btU9ukTMXsSmWDLxG2rE7iRRuFKRXMXP6s7e8lvvRvX4GuLxG6zwSTEMaNRM4ETTdyOdjO8VZNADKsnOeMCq-m5kVdlmujucSCwSN0X8=w225-h214-p-k-nu"
     },
     {
-        id: 3,
+        id: 2,
         nombre: "Lampara buenisima",
         descripcion: "Lampara con soporte de pie, con estilo colonial",
         precio: 1500,
@@ -27,7 +26,7 @@ const lamparas = [
         imagen: "https://lh3.googleusercontent.com/fife/AAbDypCArXQh0PbgjviJMqDSeCdj1mrxM0ACrrxC8yjf8TIP_Q81_CNIq0eEK9k9q8y54TG_qDmQ7Iddb3gde9JuR6YmqXxzA9hHaT8676M81eqgg4NX4WMhyy6nH9ozabjXxKCxqrHXotbL7GEGZN8VK-QsMLK2PDm38c-CAcv0xW_1-6UCG6yqK8m8wSuJ7Bm3ebTy2uk-E0-n_S67R-nkAeiRukMLiN9VRClzuZtnJFMqNi6M17nKEh65jcQP-CPcfsN-1hFO35yrN5TeaG0f58fJuO2OhMN0ypEwZDrTWDjGgjEHbYhUx8tQIxyfh_fp8jo3QJuLfin4dHwFvkEMMO7R5FjtbwDmsIuAM8X5a28OTmUF13gLPlo7gXSAMcXnadetkh_RDc1EOblDovNzSimvUq2M3FCt6zgED2IPf3y-EcvPWREmDz9cp_MJFrTG3nQi5jwbWhbsDHICNUvyisXj5_4chqSYuXfe4TLOpHlrSyaRbGxOsRrGopV4M6yoh1dm_7TY2DLhLcJZONzTGfytZ0k5g2P9OgxLHRpAHVIsdohHkHBDwA0KpjwnVZ_uAltnqV6Xjs8Z6KseapdPcMx-pJBzC3agB6mu6AAieNoNRtefOc7DnYHk1tpWP5mVOMJwpWuq1223VmtFzCpXfJMFH0RbkeUCb6-91kx5vY5s1cCVwkyz7wJDhi2hXaVfXsxBYHyJUtj4ZzNy3bkcoP6fIkIaC1fnnyEq-w0BbmuAvbehcXZqhsNH95laZxHVCP-i7nZ1al7K3VWQne9J1fMnEoX4g1QvxARUZ_7AuB2dDQue4vDXdjTzcEmX34dvN5h2C_WNBLqenopyfdVFmhjxGtyEXSH5lJbD5vIzwuH1zv4sabwtg7wKqVvk33i5XmtThbPewLgBzelVz-gfbEAh0zPHGqor2Vkj3Hq4BmcB9lBtGh6M5vkby1kcY7UDCTOFZHPZrj_ZYgnrQ3_BUu_Z0nKqk237rYfdkSZJGkrkoAlnOBRMyrgtt6DWUQH0sbiFWcH-zylcFqRa4mJvzooI5xvKrun9LaDcrK-8DSNlwMovlnS2R-z7mjDV4lWuSuABI0BXea5sRRECmfC-fiym3umAYeCHLIbdQu0Fejkl6g61dAhTNjZDAtuI_6-92jlhj74WppAs_UZiGrweb9uKXzX29tUONjXjuYflc5ex6N5q5klbe_lI7N_DBNB7Gyiah5dY_lEl0PtTUtC8Zu0ifN1oEuuYdKaTR5oUamUj6V37AiqngnOYZ4GBnpN24JLgHETWSuT9FiiNZs_v__PAErE_lecSE_GKV3vaZgU1fcZig1cLysTVeXbDhN7bZLHi4MrwWWQlI-5Ze3hLQiA3moJeHhFtX-xYfIG3qhh8ubM3ETvDA0InYBuGPNJ0Iw0d71j6PzFcIcc7xae7xZb3HO_HoCYG-5RIKZ_I7iX1DO8JPbQF2mkbEY_lMjpFGWYBtMJp9qX57TcmTH47suyEkxMUTk4lgcWibgGY9Er6oDO_DKFAXmK9r700=w225-h214-p-k-nu"
     },
     {
-        id: 4,
+        id: 3,
         nombre: "Lampara estilo arcaica",
         descripcion: "Lampara con soporte de pie, con estilo colonial",
         precio: 1500,
@@ -37,8 +36,30 @@ const lamparas = [
 
 ]
 
-const cambiarFavorito = (lamp) =>{
-    favorito = (!favorito) ? true : false
-} 
+const lamp = Array.from(lamparas).map((item, index) => {
+   return { ...item, id: index}
+  })
 
-export default lamparas
+const getLamparas = () =>{
+    return new Promise((resolve, reject) => {
+        return resolve(lamp)
+    })
+
+    console.log(getLamparas);
+
+}
+
+const getLampara = (id) => {
+    const lampFind = lamp.find(element => lamp.id = id)
+    return new Promise((resolve, reject) => {
+          return resolve(lampFind)
+        })
+
+      
+}
+
+
+export default {
+    getLamparas,
+    getLampara
+}

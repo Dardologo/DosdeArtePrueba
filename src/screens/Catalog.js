@@ -1,37 +1,40 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, Image, SafeAreaView, Button } from 'react-native';
-import lamparas from '../services/lamparas'
-import favoritos from '../services/favoritos';
+import lamparasService from '../services/lamparas'
 import Lampara from '../components/Lampara';
-import Favorito from '../components/Favorito/favorito';
-import Favourites from './Favourites'
 
-console.log(lamparas);
+import HomeContext, {lamparas} from '../services/HomeContext';
+import LamparaFlatList from '../components/LamparaFlatList';
 
 export const Catalog = (navigation) => {
+
+const [lamparas, setLamparas] = useState(lamparas)
+
+useEffect(() =>{
+  lamparasService.getLamparas().then(data => {
+    setLamparas(data)
+  })
+} , [])
+
+
   return (
+    <HomeContext.Provider value={ lamparas }>
+
     <ScrollView>
     <SafeAreaView style={styles.container}>
     <View>
       <Text style={styles.title}> Catalogo de Lamparas</Text>
        {
-        lamparas.map(lamp => <Lampara lamp={lamp}/>)        
+        <View>
+        <LamparaFlatList lamparas={lamparas} navigation={navigation}/>     
+        </View>  
        }
     </View>
       </SafeAreaView>
-    <View>
-    <View>
-      <Text style={styles.title}> Favoritos</Text>
-       {
-        favoritos.map(fav => <Favorito fav={fav}/>)        
-       }
-    </View>   
-    <Button
-          title= 'Favoritos'
-          onPress={() => navigation.navigate("Favourites")}
-          />
-    </View>
+
     </ScrollView>
+
+    </HomeContext.Provider>
 
   )}
 
@@ -55,3 +58,4 @@ export const Catalog = (navigation) => {
       
     }
   });
+
