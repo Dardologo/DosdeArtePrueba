@@ -13,7 +13,7 @@ import Lampara from "./src/components/Lampara";
 
 export default function App() {
   //creo un estado de atutenticacion
-  const [authenticationData, setauthenticationData] = useState(true);
+  const [authenticationData, setauthenticationData] = useState(false);
   const StackNavigator = createNativeStackNavigator();
   const BottonTabNavigator = createBottomTabNavigator()
 

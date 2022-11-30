@@ -12,10 +12,15 @@ const Login = () => {
     
   });
 
-  React.useEffect(() => {
+  
+  useEffect(() => {
     if (response?.type === 'success') {
       const { authentication } = response;
-      console.log("authebtication", authentication)
+      console.log("authentication", authentication)
+
+      fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&acces_token=${authentication.accessToken}`)
+      .then(res => res.json())
+      .then(data => console.log(data))
     }
   }, [response]);
 
