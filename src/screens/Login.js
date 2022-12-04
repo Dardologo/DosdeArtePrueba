@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, SafeAreaView, View, StyleSheet,Image, TouchableOpacity,Text } from "react-native"
 import * as Google from 'expo-auth-session/providers/google';
 import { useEffect } from "react";
 import { color } from '@rneui/base';
+import AuthService from '../services/login';
+import AuthContext from '../services/AuthContext';
 //import { Text } from 'react-native'
 
 const Login = () => {
@@ -12,15 +14,26 @@ const Login = () => {
     
   });
 
-  
+  //Hay que gaurdarlo en el contexto global de atutentication y lo hacemos con un useContext(hook)
+  const { setauthenticationData } = useContext(AuthContext)
+
   useEffect(() => {
     if (response?.type === 'success') {
       const { authentication } = response;
-      console.log("authentication", authentication)
+     // console.log("authentication", authentication)
+      //acces token existe dentro del objeto authentication que me devuelve google. Esto es una promesa
+      AuthService.login(authentication.accessToken).then(data =>{
+        //Esta info hay que apsarla a un contexto
+        console.log("vamos a guardar data del usuario", data);
+        setauthenticationData(data)
+      })
+      
 
-      fetch(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&acces_token=${authentication.accessToken}`)
-      .then(res => res.json())
-      .then(data => console.log(data))
+      /*AuthService.login(authentication.accessToken).then(data =>{
+        console.log(data)
+      })*/
+
+   
     }
   }, [response]);
 

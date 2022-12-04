@@ -10,17 +10,19 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, View } from "react-native";
 import Details from "./src/screens/Details/index";
 import Lampara from "./src/components/Lampara";
+import AuthenticationContext,{ authData } from "./src/services/AuthContext";
 
 export default function App() {
   //creo un estado de atutenticacion
-  const [authenticationData, setauthenticationData] = useState(false);
+  const [authenticationData, setauthenticationData] = useState(authData);
   const StackNavigator = createNativeStackNavigator();
   const BottonTabNavigator = createBottomTabNavigator()
 
 
 
   return (
-    <NavigationContainer>
+    <AuthenticationContext.Provider value={{authenticationData, setauthenticationData}}>
+      <NavigationContainer>
       <StackNavigator.Navigator>
 
       
@@ -42,6 +44,8 @@ export default function App() {
         } 
       </StackNavigator.Navigator>
     </NavigationContainer>
+    </AuthenticationContext.Provider>
+    
   );
 }
 
