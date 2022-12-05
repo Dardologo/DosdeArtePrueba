@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import {useEffect, useState, useCallback, useContext } from "react";
 import Home from './src/screens/Home';
 import Login from './src/screens/Login';
+import { Catalog } from './src/screens/Catalog';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthenticationContext,{ authData } from "./src/services/AuthContext";
@@ -18,6 +19,7 @@ const HomeNavigation = ()=> {
       <BottonTabNavigator.Navigator>
        
         <BottonTabNavigator.Screen name="Home vista" component={Home} />
+        <BottonTabNavigator.Screen name="Catalogo" component={Catalog} />
         <BottonTabNavigator.Screen name="Settings" component={Settings} />
         
       </BottonTabNavigator.Navigator>

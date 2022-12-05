@@ -20,7 +20,7 @@ import { StyleSheet } from 'react-native';
   const logout = () => {
     setauthenticationData(null)
   }
-  /*  return (
+    return (
         
         <View style={styles.container}>
            <Avatar
@@ -30,13 +30,13 @@ import { StyleSheet } from 'react-native';
             />
             <Divider />
                < Button
-               title='Logout'/>
-               onPress= {logout}
+               title='Logout'
+               onPress = {logout} />
         </View>
-    )*/
-    return (<View>
+    )
+    /*return (<View>
      
-    </View>)
+    </View>)*/
 }
 const styles =StyleSheet.create({
     container:
