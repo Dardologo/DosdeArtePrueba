@@ -3,10 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
 
 
-const Lampara = ({ lamparas }) => {
+const LamparaDetalle = ({ lamparas }) => {
     return (
         <Card containerStyle={{ marginTop: 15 }}>
             <Card.Title>
+              <Icon containerStyle={{ textAlign: 'left' }}
+                name={'star-outline'}
+                onClick={() => {console.log('apretando sobre la estrella');}} />
                 {lamparas.nombre} 
             </Card.Title>
             <Card.Divider />
@@ -14,18 +17,18 @@ const Lampara = ({ lamparas }) => {
                 style={{width:"100%",height:100}}
                 resizeMode="contain"
                 source={{uri: lamparas.imagen}}
-                onClick={() => {console.log('dandole a la imagen');}}
                 />
+            <Text h1>
+              {lamparas.precio}
+            </Text>
             <Text h2>
               {lamparas.descripcion}
             </Text>
           </Card>
-
-  
     )
 }
 
-export default Lampara
+export default LamparaDetalle
 
 
 const styles =StyleSheet.create({

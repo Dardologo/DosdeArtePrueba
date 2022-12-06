@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, Image, SafeAreaView, Button } from 'react-native';
 import lamparasService from '../services/lamparas'
-import Lampara from '../components/Lampara';
-
-import HomeContext, {lamparas} from '../services/HomeContext';
 import LamparaFlatList from '../components/LamparaFlatList';
 
 export const Catalog = (navigation) => {
 
-const [lamparas, setLamparas] = useState(lamparas)
+const [lamparas, setLamparas] = useState([])
 
 useEffect(() =>{
   lamparasService.getLamparas().then(data => {
@@ -18,23 +15,17 @@ useEffect(() =>{
 
 
   return (
-    <HomeContext.Provider value={ lamparas }>
 
-    <ScrollView>
-    <SafeAreaView style={styles.container}>
+
     <View>
       <Text style={styles.title}> Catalogo de Lamparas</Text>
        {
-        <View>
+         <View>
         <LamparaFlatList lamparas={lamparas} navigation={navigation}/>     
         </View>  
        }
     </View>
-      </SafeAreaView>
 
-    </ScrollView>
-
-    </HomeContext.Provider>
 
   )}
 

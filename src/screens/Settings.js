@@ -1,18 +1,13 @@
-import { useContext, useEffect, Text } from 'react';
+import { useContext, useEffect } from 'react';
 import { Button, View, SafeAreaView} from 'react-native';
 import AuthContext from '../services/AuthContext';
-import { Avatar, Divider } from '@rneui/themed';
+import { Avatar, Divider, Text } from '@rneui/themed';
 import { StyleSheet } from 'react-native';
-
-
-
-
 
  const Settings =({ navigation, route }) => {
   //Queremos mostrar la info del usuario en settings y ya tenemos el objeto authenticationData
  const {authenticationData, setauthenticationData} = useContext(AuthContext)
 
- console.log("Hola")
 
   useEffect(() => {
    console.log(authenticationData);
@@ -28,6 +23,9 @@ import { StyleSheet } from 'react-native';
               rounded
               source={{uri : authenticationData.picture}}
             />
+            <Text>
+              {authenticationData.given_name}
+            </Text>
             <Divider />
                < Button
                title='Logout'

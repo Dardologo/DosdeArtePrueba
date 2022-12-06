@@ -3,15 +3,14 @@ import Lampara from '../../components/Lampara';
 
 export default function LamparaFlatList({ lamparas , navigation}) {
 
-console.log(lamparas);
 
   const renderLampara = ({ item }) => {
-    console.log(item.id);
+   
     return (
         <TouchableOpacity
-        onPress={() => navigation.navigate('Details', { id: item.id}) }
+            onPress={() => navigation.navigate('Details', { id:item.id})}
             >
-            <Lampara lamparas={item}/> 
+            <Lampara lamparas={item} showAll={false}/> 
         </TouchableOpacity>
    
     )
