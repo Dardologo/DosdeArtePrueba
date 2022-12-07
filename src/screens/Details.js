@@ -1,39 +1,42 @@
 import { useEffect, useState } from "react";
 import { Button, View, StyleSheet } from "react-native"
-import LamparaDetalle from "../components/LamparaDetalle";
+
 import lamparasService from "../services/lamparas";
+import LamparaDetalle from "../components/LamparaDetalle"
 
 
-const Details = ({ route }) => {
+const Details = (props)   => {
+    const [lampara, setLampara] = useState()
 
-    const {id} = route.params || {}
-    console.log("******************************",id)
-    const [lamparas, setLamparas] = useState([])
+   /* const {id} = route.params || {}
+    
 
     const lamparaEncontrada = lamparasService.getLampara(id)
-    setLamparas(lamparaEncontrada)
-    console.log("***********",lamparaEncontrada,"***************")
-   console.log("+++++++++++++++++++",lamparas)
-  /*  useEffect(() => {
-        console.log("Tengo que ir a buscar la informacion detallada de este elemento", id);
+    setLamparas(lamparaEncontrada)*/
+
+   useEffect(() => {
         lamparasService.getLampara(id)
 
-        .then(data => {
+        .then(setLampara)
 
-            console.log("Lampara a mostrar", data);
-            setLamparas(data)
-        })
-    }, [])*/
+
+
+
+    }, [])
 
     
-    console.log("**************************",lamparas)
+
     return (
         <View style={styles.container}>
             {
-                
-                <LamparaDetalle lampara={lamparas} showAll={true} />
-                
+                lampara ? 
+                <LamparaDetalle lampara={lampara} showAll={true} />
+                : 
+                null
             }
+                
+                
+            
         </View>
     )
 }

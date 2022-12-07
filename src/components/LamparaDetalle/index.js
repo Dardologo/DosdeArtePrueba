@@ -1,6 +1,7 @@
-import {Card, Image, Button, Icon } from '@rneui/themed';
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Card, Image, Button, Icon } from '@rneui/themed';
+
 
 
 const LamparaDetalle = ({ lamparas }) => {
