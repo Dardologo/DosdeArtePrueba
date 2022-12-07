@@ -36,7 +36,7 @@ export default function Home ({navigation}) {
             <View> 
                 <Button
                     title= 'Catalogo'
-                    onPress={() => navigation.navigate("Catalogo")}
+                    onPress={() => navigation.navigate("Catalogo", {navigation})}
                 />
                 <Button
                     title= 'Favoritos'

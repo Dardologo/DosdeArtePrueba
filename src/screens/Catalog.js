@@ -3,7 +3,7 @@ import { View, Text, ScrollView, StyleSheet, Image, SafeAreaView, Button } from 
 import lamparasService from '../services/lamparas'
 import LamparaFlatList from '../components/LamparaFlatList';
 
-export const Catalog = (navigation) => {
+export const Catalog = ({navigation}) => {
 
 const [lamparas, setLamparas] = useState([])
 

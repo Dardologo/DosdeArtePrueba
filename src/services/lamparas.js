@@ -50,7 +50,7 @@ const getLamparas = () =>{
 }
 
 const getLampara = (id) => {
-    const lampFind = lamp.find(element => lamp.id === id)
+    const lampFind = lamp.find(element => element.id === id)
     return new Promise((resolve, reject) => {
           return resolve(lampFind)
         })
