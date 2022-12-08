@@ -4,26 +4,26 @@ import {Card, Image, Button, Icon } from '@rneui/themed';
 
 
 
-const LamparaDetalle = ({ lamparas }) => {
+const LamparaDetalle = ({ lampara }) => {
     return (
         <Card containerStyle={{ marginTop: 15 }}>
             <Card.Title>
               <Icon containerStyle={{ textAlign: 'left' }}
                 name={'star-outline'}
-                onClick={() => {console.log('apretando sobre la estrella');}} />
-                {lamparas.nombre} 
+                onPress={() => console.log('apretando sobre la estrella')} />
+                {lampara.nombre} 
             </Card.Title>
             <Card.Divider />
             <Image
                 style={{width:"100%",height:100}}
                 resizeMode="contain"
-                source={{uri: lamparas.imagen}}
+                source={{uri: lampara.imagen}}
                 />
             <Text h1>
-              {lamparas.precio}
+              {lampara.precio}
             </Text>
             <Text h2>
-              {lamparas.descripcion}
+              {lampara.descripcion}
             </Text>
           </Card>
     )

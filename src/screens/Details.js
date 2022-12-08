@@ -5,38 +5,41 @@ import lamparasService from "../services/lamparas";
 import LamparaDetalle from "../components/LamparaDetalle"
 
 
-const Details = (props)   => {
+const Details = ({ route }) => {
     const [lampara, setLampara] = useState()
+    const { id } = route.params || {}
+    console.log({id, route});
 
-   /* const {id} = route.params || {}
-    
 
-    const lamparaEncontrada = lamparasService.getLampara(id)
+
+
+
+    /*const lamparaEncontrada = lamparasService.getLampara(id)
     setLamparas(lamparaEncontrada)*/
 
-   useEffect(() => {
-        lamparasService.getLampara(id)
-
-        .then(setLampara)
-
-
-
-
-    }, [])
-
+    useEffect(() => {
+        
+            lamparasService.getLampara(id)
     
+                .then(setLampara)
+
+    }, [id])
+
+
+
+
 
     return (
         <View style={styles.container}>
             {
-                lampara ? 
-                <LamparaDetalle lampara={lampara} showAll={true} />
-                : 
-                null
+                lampara ?
+                    <LamparaDetalle lampara={lampara} showAll={true} />
+                    :
+                    null
             }
-                
-                
-            
+
+
+
         </View>
     )
 }

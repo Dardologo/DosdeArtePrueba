@@ -45,12 +45,12 @@ const getLamparas = () =>{
         return resolve(lamp)
     })
 
-    console.log(getLamparas);
 
 }
 
 const getLampara = (id) => {
-    const lampFind = lamp.find(element => element.id === id)
+    const lampFind = lamparas.find(element => element.id === id)
+    console.log({lampFind});
     return new Promise((resolve, reject) => {
           return resolve(lampFind)
         })
