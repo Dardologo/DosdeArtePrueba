@@ -1,73 +1,40 @@
-import { useEffect, useState } from 'react';
-import { View, Text, ScrollView, StyleSheet, Image, SafeAreaView, Button } from 'react-native';
-import lamparasService from '../services/lamparas'
-import LamparaFlatList from '../components/LamparaFlatList';
-import AsyncStorage from '../services/AsyncStorage';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useEffect, useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
+
+import LamparaFlatList from "../components/LamparaFlatList";
+import { useLamps } from "../hooks/useLamps";
 
 export const Catalog = ({ navigation }) => {
-
-  const [lamparas, setLamparas] = useState([])
-
-  useEffect(() => {
-    lamparasService.getLamparas().then(data => {
-      setLamparas(data)
-    })
-  }, [])
+  const [allMyLamps, setallMyLamps] = useState([]);
+  const { getLamps } = useLamps();
 
   useEffect(() => {
-    if(lamparas.length > 0){
-      console.log('ESTAMOS ACA');
-      AsyncStorage.storeData('MisLamparas', 'hola')
-
-    }
-
-  }, [lamparas])
-
+    getLamps().then(setallMyLamps);
+  }, []);
 
   return (
-
-
     <View>
-      <TouchableOpacity
-      onPress={()=>{
-        AsyncStorage.getData('MisLamparas').then(
-          res => console.log(res)
-        )
-      }}>
-
       <Text style={styles.title}> Catalogo de Lamparas</Text>
-        
-      </TouchableOpacity>
-      {
-        <View>
-          <LamparaFlatList lamparas={lamparas} navigation={navigation} />
-        </View>
-      }
+      <View>
+        <LamparaFlatList lamparas={allMyLamps} navigation={navigation} />
+      </View>
     </View>
-
-
-  )
-}
-
+  );
+};
 
 const styles = StyleSheet.create({
-  container:
-  {
+  container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    marginTop: 30
-
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    marginTop: 30,
   },
   title: {
     fontSize: 20,
-    alignContent: 'center',
+    alignContent: "center",
     marginTop: 5,
-    fontWeight: 'bold',
-    justifyContent: 'center',
-    textAlign: 'center'
-
-  }
+    fontWeight: "bold",
+    justifyContent: "center",
+    textAlign: "center",
+  },
 });
-
