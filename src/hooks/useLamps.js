@@ -1,5 +1,3 @@
-
-
 import AsyncStorage from "../services/AsyncStorage";
 import lamparasService from "../services/lamparas";
 
@@ -11,6 +9,17 @@ export const useLamps = () => {
       AsyncStorage.storeData("MIS_LAMPARAS", lampsByService);
       return lampsByService;
     }
+
+    return res;
+  };
+
+  const getFavouritesLamps = async () => {
+    const res = await AsyncStorage.getData("MIS_LAMPARAS_FAVORITAS");
+    if (!res) {
+      AsyncStorage.storeData("MIS_LAMPARAS_FAVORITAS", []);
+      return [];
+    }
+
     return res;
   };
 
@@ -20,13 +29,27 @@ export const useLamps = () => {
   };
 
   const setFavouriteLamp = async (updateLamp) => {
-    const allMyLamps = await getLamps();
-    const newArrayLamps = allMyLamps.filter((el) => el.id !== updateLamp.id);
-    AsyncStorage.storeData("MIS_LAMPARAS", [
-      ...newArrayLamps,
-      { ...updateLamp, favorito: !updateLamp.favorito },
+    const myFavouritesLamps = await getFavouritesLamps();
+
+    AsyncStorage.storeData("MIS_LAMPARAS_FAVORITAS", [
+      ...myFavouritesLamps,
+      updateLamp,
     ]);
   };
 
-  return { getLamps, setFavouriteLamp, getLampById };
+  const removeFavouriteLamp = async (updateLamp) => {
+    const myFavouritesLamps = await getFavouritesLamps();
+    let arrayLampsModified = myFavouritesLamps.filter(
+      (el) => el !== updateLamp
+    );
+    AsyncStorage.storeData("MIS_LAMPARAS_FAVORITAS", arrayLampsModified);
+  };
+
+  return {
+    getLamps,
+    setFavouriteLamp,
+    getLampById,
+    getFavouritesLamps,
+    removeFavouriteLamp,
+  };
 };

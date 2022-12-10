@@ -1,102 +1,98 @@
 //import "react-native-gesture-handler";
-import * as React from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import {useEffect, useState, useCallback, useContext } from "react";
-import Home from './src/screens/Home';
-import Login from './src/screens/Login';
-import { Catalog } from './src/screens/Catalog';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import AuthenticationContext,{ authData } from "./src/services/AuthContext";
-import Settings from "./src/screens/Settings";
-import Details from "./src/screens/Details"
-import AsyncStorage from './src/services/AsyncStorage';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
+import AuthenticationContext, { authData } from "./src/services/AuthContext";
+import AsyncStorage from "./src/services/AsyncStorage";
+import { Login } from "./src/screens";
+import {
+  CatalogNavigation,
+  HomeNavigation,
+  MapNavigation,
+} from "./src/navigators";
 
-const HomeStack = createNativeStackNavigator();
-
-const HomeNavigation = ()=> {
-  const BottonTabNavigator = createBottomTabNavigator()
-     return (
-      <HomeStack.Navigator>
-        <HomeStack.Screen name="Home vista" component={Home} />
-        <HomeStack.Screen name="Settings" component={Settings} />
-        <HomeStack.Screen name="Details" component={Details} />
-    </HomeStack.Navigator>
-
-  ); 
-}
-const CatalogStack = createNativeStackNavigator();
-
-const CatalogNavitagion = ()=> {
-     return (
-      <CatalogStack.Navigator>
-        <CatalogStack.Screen name="Catalogo" component={Catalog} />
-      </CatalogStack.Navigator>
-    
-  ); 
-}
-
-
-
+const BottomTabNavigator = createBottomTabNavigator();
 
 export default function App() {
   //creo un estado de atutenticacion
   const [authenticationData, setauthenticationData] = useState(authData);
-  const BottomTabNavigator = createBottomTabNavigator()
 
-  useEffect(useCallback(() => {
-    // console.log("Aqui tengo que verificar si existe data en la cache del dispositivo");
-    AsyncStorage.getData('AuthData')
-      .then(data => {
-        // console.log("Encontro data???", data);
+  useEffect(
+    useCallback(() => {
+      AsyncStorage.getData("AuthData").then((data) => {
         if (data) {
-          setAuthenticationData(data)
+          setauthenticationData(data);
         }
-      })
-  }), [])
+      });
+    }),
+    []
+  );
 
-  useEffect(useCallback(() => {
-    setTimeout(() => {
-      if (authenticationData) {
-        AsyncStorage.storeData('AuthData', authenticationData)
-      } else {
-        AsyncStorage.clearAll()
-      }
-    });
+  useEffect(
+    useCallback(() => {
+      setTimeout(() => {
+        //Se ejecuta siempre al final
+        if (authenticationData) {
+          //Si tengo data lo guardo en AsyncStorage
+          AsyncStorage.storeData("AuthData", authenticationData);
+        } else {
+          AsyncStorage.clearAll();
+        }
+      });
 
+      //Si tengo que guardar favoritos deberia cambiar este metodo. No puedo hacer el clearAll? Porque me borra todo
+      //lo de mi sesion
+    }),
+    [authenticationData]
+  );
 
+  return (
+    <AuthenticationContext.Provider
+      value={{ authenticationData, setauthenticationData }}
+    >
+      {/* Todo lo que esta dentro del stack estara disponible dentro del arbol de navegacion */}
+      <NavigationContainer>
+        {
+          /* Si hay data de usuario me muestra el index, Home */
+          authenticationData ? (
+            <BottomTabNavigator.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
 
-  }), [authenticationData])
+                  if (route.name === "Home") {
+                    iconName = focused
+                      ? "ios-information-circle"
+                      : "ios-information-circle-outline";
+                  } else if (route.name === "Catalogo") {
+                    iconName = "ios-list";
+                  } else if (route.name === "Map") {
+                    iconName = "map-outline";
+                  }
 
- return (
-    <AuthenticationContext.Provider value={{authenticationData, setauthenticationData}}>
-    
-        {/* Todo lo que esta dentro del stack estara disponible dentro del arbol de navegacion */}
-        <NavigationContainer>
-        {/* Si hay data de usuario me muestra el index, Home */
-          
-
-        authenticationData ? 
-
-        <BottomTabNavigator.Navigator screenOptions={{ headerShown: false }}>
-            <BottomTabNavigator.Screen name="Home" component={HomeNavigation} />
-            <BottomTabNavigator.Screen name="Catalogo" component={CatalogNavitagion} />
-        </BottomTabNavigator.Navigator>
-         : 
-          /* Si no hay data de usuario me muestra el Login */
-         
-         <Login />
-
-        } 
-        </NavigationContainer> 
-     
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: "tomato",
+                tabBarInactiveTintColor: "gray",
+              })}
+            >
+              <BottomTabNavigator.Screen
+                name="Home"
+                component={HomeNavigation}
+              />
+              <BottomTabNavigator.Screen name="Map" component={MapNavigation} />
+              <BottomTabNavigator.Screen
+                name="Catalogo"
+                component={CatalogNavigation}
+              />
+            </BottomTabNavigator.Navigator>
+          ) : (
+            <Login />
+          )
+        }
+      </NavigationContainer>
     </AuthenticationContext.Provider>
-    
   );
 }
-
-
-
-
-     
