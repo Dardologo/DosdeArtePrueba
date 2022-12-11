@@ -5,11 +5,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import AuthenticationContext, { authData } from "./src/services/AuthContext";
 import AsyncStorage from "./src/services/AsyncStorage";
-import { Login } from "./src/screens";
 import {
   CatalogNavigation,
   HomeNavigation,
   MapNavigation,
+  PublicNavigation,
 } from "./src/navigators";
 
 const BottomTabNavigator = createBottomTabNavigator();
@@ -18,6 +18,7 @@ export default function App() {
   //creo un estado de atutenticacion
   const [authenticationData, setauthenticationData] = useState(authData);
 
+  // volver a descomentar para otros usuarios
   useEffect(
     useCallback(() => {
       AsyncStorage.getData("AuthData").then((data) => {
@@ -78,17 +79,20 @@ export default function App() {
               })}
             >
               <BottomTabNavigator.Screen
-                name="Home"
+                name="HOME"
                 component={HomeNavigation}
               />
-              <BottomTabNavigator.Screen name="Map" component={MapNavigation} />
               <BottomTabNavigator.Screen
-                name="Catalogo"
+                name="SUCURSALES"
+                component={MapNavigation}
+              />
+              <BottomTabNavigator.Screen
+                name="CATALOGO"
                 component={CatalogNavigation}
               />
             </BottomTabNavigator.Navigator>
           ) : (
-            <Login />
+            <PublicNavigation/>
           )
         }
       </NavigationContainer>

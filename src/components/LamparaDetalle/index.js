@@ -1,26 +1,30 @@
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Card, Image, Icon } from "@rneui/themed";
+
 import { useLamps } from "../../hooks";
-import { useEffect, useState } from "react";
 
 const LamparaDetalle = ({ lampara }) => {
-  const [isFavourite, setIsFavourite] = useState(false);
-  const { setFavouriteLamp, getFavouritesLamps } = useLamps();
+  const { getFavouriteState, setFavouriteLamp } = useLamps();
+  const [favouriteActive, setFavouriteActive] = useState();
+
+  const setThisLampAsFavourite = async () => {
+    await setFavouriteLamp(lampara);
+    await getFavouriteState(lampara).then(setFavouriteActive);
+  };
 
   useEffect(() => {
-    getFavouritesLamps().then((res) => {
-      const obj = res.find((el) => el.id === lampara.id);
-    });
+    getFavouriteState(lampara).then(setFavouriteActive);
   }, []);
 
   return (
     <Card containerStyle={{ marginTop: 15 }}>
       <View style={styles.row}>
         <Card.Title>{lampara.nombre}</Card.Title>
-        <TouchableOpacity onPress={() => setFavouriteLamp(lampara)}>
+        <TouchableOpacity onPress={setThisLampAsFavourite}>
           <Icon
             containerStyle={{ textAlign: "left" }}
-            name={`star${lampara.favorito ? "" : "-outline"}`}
+            name={`star${favouriteActive ? "" : "-outline"}`}
           />
         </TouchableOpacity>
       </View>

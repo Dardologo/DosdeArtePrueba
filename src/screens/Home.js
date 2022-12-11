@@ -9,6 +9,12 @@ import {
   View,
   Image,
 } from "react-native";
+import {
+  ROUTE_FAVOURITES_LAMPS,
+  ROUTE_LAMP_CATALOG,
+  ROUTE_MAP,
+  ROUTE_SETTINGS,
+} from "../constants/screens";
 
 export default function Home({ navigation }) {
   const { authenticationData, setauthenticationData } = useContext(AuthContext);
@@ -25,25 +31,26 @@ export default function Home({ navigation }) {
             }}
           />
         </View>
-        <Text></Text>
 
-        <Text>Bienvenido a Dos De Arte {authenticationData.given_name}</Text>
+        <Text>Hola {authenticationData.given_name}, Bienvenido a Dos De Arte!</Text>
         <Divider></Divider>
         <Text></Text>
         <View>
           <Button
             title="Catalogo"
-            onPress={() => navigation.navigate("Catalogo", { navigation })}
+            onPress={() =>
+              navigation.navigate("CATALOGO", { navigation })
+            }
           />
           <Button
             title="Favoritos"
-            onPress={() => navigation.navigate("Favourites")}
+            onPress={() => navigation.navigate(ROUTE_FAVOURITES_LAMPS)}
           />
           <Button
             title="Settings"
-            onPress={() => navigation.navigate("Settings")}
+            onPress={() => navigation.navigate(ROUTE_SETTINGS)}
           />
-          <Button title="Map" onPress={() => navigation.navigate("Map")} />
+          <Button title="Sucursales" onPress={() => navigation.navigate(ROUTE_MAP)} />
         </View>
       </View>
     </SafeAreaView>

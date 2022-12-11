@@ -1,42 +1,33 @@
-import {Card, Image, Button, Icon } from '@rneui/themed';
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import { useState } from 'react';
+import { Card, Image } from "@rneui/themed";
+import { StyleSheet } from "react-native";
 
 
 const Lampara = ({ lamparas }) => {
-    return (
-        <Card containerStyle={{ marginTop: 15 }}>
-            <Card.Title>
-                {lamparas.nombre} 
-            </Card.Title>
-            <Card.Divider />
-            <Image
-                style={{width:"100%",height:100}}
-                resizeMode="contain"
-                source={{uri: lamparas.imagen}}
-                onClick={() => {console.log('dandole a la imagen');}}
-                />
-            <Text h2>
-              {lamparas.descripcion}
-            </Text>
-          </Card>
+  return (
+    <Card containerStyle={{ marginTop: 15 }}>
+      <Card.Title>{lamparas.nombre}</Card.Title>
+      <Card.Divider />
+      <Image
+        style={{ width: "100%", height: 100 }}
+        resizeMode="contain"
+        source={{ uri: lamparas.imagen }}
+        onClick={() => {
+          console.log("dandole a la imagen");
+        }}
+      />
+    </Card>
+  );
+};
 
-  
-    )
-}
+export default Lampara;
 
-export default Lampara
-
-
-const styles =StyleSheet.create({
-  container:
-  {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    justifyContent: "center",
   },
-  icon:
-  {
-    textAlign: 'left'
-  }
+  icon: {
+    textAlign: "left",
+  },
 });
