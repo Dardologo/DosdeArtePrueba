@@ -11,7 +11,7 @@ const LamparaDetalle = ({ lampara }) => {
     getFavouritesLamps().then((res) => {
       const obj = res.find((el) => el.id === lampara.id);
     });
-  }, [third]);
+  }, []);
 
   return (
     <Card containerStyle={{ marginTop: 15 }}>

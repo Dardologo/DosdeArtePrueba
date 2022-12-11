@@ -3,7 +3,6 @@ import React, { useEffect, useState, useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
 import AuthenticationContext, { authData } from "./src/services/AuthContext";
 import AsyncStorage from "./src/services/AsyncStorage";
 import { Login } from "./src/screens";
@@ -67,7 +66,7 @@ export default function App() {
                       ? "ios-information-circle"
                       : "ios-information-circle-outline";
                   } else if (route.name === "Catalogo") {
-                    iconName = "ios-list";
+                    iconName = "list";
                   } else if (route.name === "Map") {
                     iconName = "map-outline";
                   }
