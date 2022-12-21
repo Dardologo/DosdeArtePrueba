@@ -7,7 +7,7 @@ export default function LamparaFlatList({ lamparas, navigation }) {
   const renderLampara = ({ item }) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate(ROUTE_LAMP_DETAIL, { id: item.id })}
+        onPress={() => navigation.navigate(ROUTE_LAMP_DETAIL, { id: item.id, navigation} )}
       >
         <Lampara lamparas={item} showAll={false} />
       </TouchableOpacity>

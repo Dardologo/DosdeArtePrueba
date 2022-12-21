@@ -4,7 +4,7 @@ import {  View, StyleSheet } from "react-native";
 import LamparaDetalle from "../components/LamparaDetalle";
 import { useLamps } from "../hooks";
 
-const Details = ({ route }) => {
+const Details = ({ route, navigation }) => {
   const { id } = route.params;
   const { getLampById } = useLamps();
   const [lampara, setLampara] = useState();
@@ -15,7 +15,7 @@ const Details = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      {lampara ? <LamparaDetalle lampara={lampara} showAll={true} /> : null}
+      {lampara ? <LamparaDetalle lampara={lampara} navigation={navigation} showAll={true} /> : null}
     </View>
   );
 };

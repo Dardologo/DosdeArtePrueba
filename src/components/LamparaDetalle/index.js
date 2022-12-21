@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Card, Image, Icon } from "@rneui/themed";
+import { Card, Image, Icon, Button } from "@rneui/themed";
+import { ROUTE_MAP } from "../../constants/screens";
 
 import { useLamps } from "../../hooks";
 
-const LamparaDetalle = ({ lampara }) => {
+const LamparaDetalle = ({ lampara, navigation }) => {
   const { getFavouriteState, setFavouriteLamp } = useLamps();
   const [favouriteActive, setFavouriteActive] = useState();
 
@@ -36,6 +37,7 @@ const LamparaDetalle = ({ lampara }) => {
       />
       <Text h1>{lampara.precio}</Text>
       <Text h2>{lampara.descripcion}</Text>
+      <Button title="Sucursales" onPress={() => navigation.navigate(ROUTE_MAP)} />
     </Card>
   );
 };
