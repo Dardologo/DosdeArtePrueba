@@ -44,7 +44,8 @@ const Map = () => {
                             latitude: marker.latitude,
                             longitude: marker.longitude,
                         }}
-                        title={marker.direction}
+                        title={marker.name}
+                        description={marker.direction}
                     ></Marker>
                 ))}
             </MapView>

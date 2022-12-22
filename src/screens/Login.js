@@ -48,6 +48,7 @@ export const Login = () => {
       >
         <View style={styles.container}>
           <Text style={styles.title}>Bienvenidos a Dos De Arte</Text>
+          <Text style={styles.title2}>Por favor ingresar con tu cuenta de Google</Text>
 
           <Image
             source={require("../../assets/btn_google_signin_light_normal_web.png")}
@@ -65,10 +66,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
   title: {
-    fontSize: 40,
+    fontSize: 25,
     alignContent: "center",
+    marginTop: 20,
+    fontWeight: "bold",
     justifyContent: "center",
-    color: "green",
+    textAlign: "center",
+  },
+  title2: {
+    fontSize: 20,
+    alignContent: "center",
+    marginTop: 20,
+    justifyContent: "center",
+    textAlign: "center",
   },
 });

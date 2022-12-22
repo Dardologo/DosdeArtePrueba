@@ -32,25 +32,19 @@ export default function Home({ navigation }) {
           />
         </View>
 
-        <Text>Hola {authenticationData.given_name}, Bienvenido a Dos De Arte!</Text>
+        <Text style={styles.title}>Hola {authenticationData.given_name}</Text>
+        <Text style={styles.title2}>Bienvenido a Dos De Arte!</Text>
         <Divider></Divider>
         <Text></Text>
         <View>
           <Button
-            title="Catalogo"
-            onPress={() =>
-              navigation.navigate("CATALOGO", { navigation })
-            }
-          />
-          <Button
-            title="Favoritos"
+            title="Mis Favoritos"
             onPress={() => navigation.navigate(ROUTE_FAVOURITES_LAMPS)}
           />
           <Button
             title="Settings"
             onPress={() => navigation.navigate(ROUTE_SETTINGS)}
           />
-          <Button title="Sucursales" onPress={() => navigation.navigate(ROUTE_MAP)} />
         </View>
       </View>
     </SafeAreaView>
@@ -64,4 +58,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  title: {
+    fontSize: 20,
+    alignContent: "center",
+    marginTop: 20,
+    fontWeight: "bold",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  title2: {
+    fontSize: 20,
+    alignContent: "center",
+    marginTop: 8,
+    fontWeight: "bold",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+
 });

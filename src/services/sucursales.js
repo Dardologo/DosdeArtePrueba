@@ -14,6 +14,22 @@ export const SUCURSALES_DATA = [
     longitude: -58.4802767,
     color: '#A3EAD8',
     name: 'Dos de Arte Vicente Lopez',
-    direction: 'Av Maipu 707',
+    direction: 'Av Maipu 707, Vicente Lopez',
+  },
+  {
+    id: '3',
+    latitude: -30.5318179,
+    longitude: -50.4802767,
+    color: '#A3EAD8',
+    name: 'Sucursal 1 prueba',
+    direction: 'Av Maipu 707, Vicente Lopez',
+  },
+  {
+    id: '4',
+    latitude: -38.5318179,
+    longitude: -65.4802767,
+    color: '#A3EAD8',
+    name: 'Sucursal 2 prueba',
+    direction: 'Av Maipu 707, Vicente Lopez',
   },
 ];

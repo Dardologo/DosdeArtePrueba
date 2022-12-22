@@ -21,7 +21,7 @@ const LamparaDetalle = ({ lampara, navigation }) => {
   return (
     <Card containerStyle={{ marginTop: 15 }}>
       <View style={styles.row}>
-        <Card.Title>{lampara.nombre}</Card.Title>
+        <Card.Title style={styles.title}>{lampara.nombre}</Card.Title>
         <TouchableOpacity onPress={setThisLampAsFavourite}>
           <Icon
             containerStyle={{ textAlign: "left" }}
@@ -37,7 +37,7 @@ const LamparaDetalle = ({ lampara, navigation }) => {
       />
       <Text h1>{lampara.precio}</Text>
       <Text h2>{lampara.descripcion}</Text>
-      <Button title="Sucursales" onPress={() => navigation.navigate(ROUTE_MAP)} />
+      <Button containerStyle={styles.separator} title="Ver Sucursales" onPress={() => navigation.navigate(ROUTE_MAP)} />
     </Card>
   );
 };
@@ -53,5 +53,21 @@ const styles = StyleSheet.create({
   },
   icon: {
     textAlign: "left",
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  title: {
+    fontSize: 20,
+    alignContent: "center",
+    fontWeight: "bold",
+    justifyContent: "center",
+    textAlign: "center",
   },
 });

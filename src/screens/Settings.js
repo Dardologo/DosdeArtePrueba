@@ -23,7 +23,7 @@ import { StyleSheet } from 'react-native';
               rounded
               source={{uri : authenticationData.picture}}
             />
-            <Text>
+            <Text style={styles.title}>
               {authenticationData.given_name}
             </Text>
             <Divider />
@@ -45,10 +45,12 @@ const styles =StyleSheet.create({
       alignItems: 'center'
     },
     title: {
-      fontSize: 40,
-      alignContent: 'center',
-      justifyContent: 'center',
-      color: 'green'
-  }
+      fontSize: 20,
+      alignContent: "center",
+      marginTop: 8,
+      fontWeight: "bold",
+      justifyContent: "center",
+      textAlign: "center",
+    },
   });
   export default Settings
